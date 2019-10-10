@@ -56,7 +56,7 @@ for (inputOne, inputTwo, expectedOutput) in testCasesTwo {
 
 // Your function here
 
-func smallestValue(arr: [Double]) -> Double {
+func smallestValue(in arr: [Double]) -> Double {
     var smallestnum: Double = arr[0]
     for num in arr {
         if num < smallestnum {
@@ -65,10 +65,6 @@ func smallestValue(arr: [Double]) -> Double {
     }
     return smallestnum
 }
-let array = [1.1, 3.4, 5.6, 0.9]
-
-print(smallestValue(arr: array))
-
 
 let testCasesThree: [([Double], Double)] = [
     (input: [1.0,2,3,4,5,5], expectedOutput: 1.0),
@@ -77,17 +73,27 @@ let testCasesThree: [([Double], Double)] = [
     (input: [-4,-59,-348,-34,-4], expectedOutput: -348),
 ]
 
-//for (input, expectedOutput) in testCasesThree {
-//    let output = smallestValue(in: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesThree {
+    let output = smallestValue(in: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 
 // Question Four
 
 // Write a function named occurrances(of:in:) that counts how many characters in a String match a specific character.
 
-// Your function here
+// Answer:
+
+func occurrances(of char: Character, in str: String) -> Int{
+    var occurrances = 0
+    for letter in str{
+        if letter == char {
+            occurrances += 1
+        }
+    }
+    return occurrances
+}
 
 let testCasesFour: [(Character, String, Int)] = [
     (inputOne: "l", inputTwo: "hello", expectedOutput: 2),
@@ -96,17 +102,32 @@ let testCasesFour: [(Character, String, Int)] = [
     (inputOne: "E", inputTwo: "cApItAlS aRe DiFfErEnT", expectedOutput: 2),
 ]
 
-//for (inputOne, inputTwo, expectedOutput) in testCasesFour {
-//    let output = occurrances(of: inputOne, in: inputTwo)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
-//}
+for (inputOne, inputTwo, expectedOutput) in testCasesFour {
+    let output = occurrances(of: inputOne, in: inputTwo)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
+}
 
 
 // Question Five
 
 // Write a function called removeNils(from:) that takes an array of optional Ints and returns an array with them unwrapped with any nil values removed.
 
-// Your function here
+// Answer:
+
+
+func removeNils(from array: [Int?]) -> [Int]{
+    var noNilArray: [Int] = []
+    // loop through the array
+    // unwrap the value using if let
+    // append to noNilArray
+    
+    for num in array{
+        if let newNum = num{
+            noNilArray.append(newNum)
+        }
+    }
+    return noNilArray
+}
 
 let testCasesFive: [([Int?], [Int])] = [
     (input: [1, nil, 9, nil, 10, nil], expectedOutput: [1,9,10]),
@@ -115,8 +136,8 @@ let testCasesFive: [([Int?], [Int])] = [
     (input: [], expectedOutput: []),
 ]
 
-//for (input, expectedOutput) in testCasesFive {
-//    let output = removeNils(from: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesFive {
+    let output = removeNils(from: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
