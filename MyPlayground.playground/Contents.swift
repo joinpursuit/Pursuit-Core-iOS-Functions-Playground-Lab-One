@@ -96,10 +96,8 @@ let testCasesFour: [(Character, String, Int)] = [
 func occurrances(of char1: Character, in str: String) -> Int {
     var count = 0
     
-    for char2 in str {
-        if char1 == char2 {
-            count += 1
-        }
+    for char2 in str where char1 == char2 {
+        count += 1
     }
     
     return count
@@ -126,11 +124,11 @@ let testCasesFive: [([Int?], [Int])] = [
 
 func removeNils(from numArr: [Int?]) -> [Int] {
     var numWithoutNil: [Int] = []
-    for num in numArr {
-        if num != nil {
-            numWithoutNil.append(num!)
-        }
+    
+    for num in numArr where num != nil {
+        numWithoutNil.append(num!)
     }
+    
     return numWithoutNil
 }
 
