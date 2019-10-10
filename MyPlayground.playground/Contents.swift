@@ -14,10 +14,19 @@ let testCasesOne: [(Double, Double)] = [
     (input: 99, expectedOutput: 198)
 ]
 
-//for (input, expectedOutput) in testCasesOne {
-//    let output = double(input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+func double(Double: Double) -> Double {
+    let result = Double * 2
+    return result
+}
+double(Double: 3.0)
+double(Double: 0)
+double(Double: -2)
+double(Double: 99)
+
+for (input, expectedOutput) in testCasesOne {
+    let output = double(Double: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 
 
