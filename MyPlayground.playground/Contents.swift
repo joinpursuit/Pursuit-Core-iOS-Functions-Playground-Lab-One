@@ -114,20 +114,36 @@ for (inputOne, inputTwo, expectedOutput) in testCasesFour {
 // Write a function called removeNils(from:) that takes an array of optional Ints and returns an array with them unwrapped with any nil values removed.
 
 // Your function here
+var num: Int?
+var validNum: [Int] = []
 
-func removeNils()   {
-    
+func removeNils(optArray : [Int?]) -> [Int]   {
+    validNum = []
+    for element in optArray {
+        if element != nil {
+            validNum.append(element ?? 0)
+        }
+    }
+    return validNum
 }
+
+let arr = removeNils(optArray : [1,nil,9,nil,10,nil])
+let arr2 = removeNils(optArray : [1,2,3])
+let arr3 = removeNils(optArray : [nil])
+print(arr)
+print(arr2)
+print(arr3)
+
+
 
 let testCasesFive: [([Int?], [Int])] = [
     (input: [1, nil, 9, nil, 10, nil], expectedOutput: [1,9,10]),
-    (input: [1, 2, 3], expectedOutput: [1,2,3]),
+    (input: [1, 2, 3], expectedOutput: [1, 2, 3]),
     (input: [nil], expectedOutput: []),
     (input: [], expectedOutput: []),
 ]
 
-//for (input, expectedOutput) in testCasesFive {
-//    let output = removeNils(from: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
-
+for (input, expectedOutput) in testCasesFive {
+    let output = removeNils(optArray: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
