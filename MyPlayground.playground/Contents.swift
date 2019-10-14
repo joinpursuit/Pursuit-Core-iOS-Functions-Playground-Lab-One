@@ -84,12 +84,15 @@ let testCasesThree: [([Double], Double)] = [
 // Write a function named occurrances(of:in:) that counts how many characters in a String match a specific character.
 
 // Your function here
-func Occurrance(of: Char, x: String) -> Int
-var emptyDict = [String.char]()
-for char in x {
-    of char == x {
-        emptyDict[Char] = count + 1
+
+func occurrances(of letters: Character, in string: String) -> Int {
+    var counter = 0
+    for element in string {
+        if element == letters { // I needed to set letters to another variable name
+            counter += 1
+        }
     }
+    return counter
 }
 
 let testCasesFour: [(Character, String, Int)] = [
