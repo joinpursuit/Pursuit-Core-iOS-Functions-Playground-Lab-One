@@ -83,7 +83,7 @@ for (input, expectedOutput) in testCasesThree {
 
 // Question Four
 
-// Write a function named occurrances(of:in:) that counts how many characters in a String match a specific character.
+// Write a function named occurrences(of:in:) that counts how many characters in a String match a specific character.
 
 // Your function here
 
@@ -108,6 +108,7 @@ for (inputOne, inputTwo, expectedOutput) in testCasesFour {
     let output = occurrances(of: inputOne, in: inputTwo)
     assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
 }
+
 
 
 // Question Five
