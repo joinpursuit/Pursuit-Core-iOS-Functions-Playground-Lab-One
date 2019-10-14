@@ -6,6 +6,10 @@ import UIKit
 
 // Your function here
 
+func double(number x: Int) -> Int {
+    let result = x * 2
+    return result
+}
 
 let testCasesOne: [(Double, Double)] = [
     (input: 3.0, expectedOutput: 6.0),
@@ -27,6 +31,14 @@ let testCasesOne: [(Double, Double)] = [
 
 // Your function here
 
+// why does this need a return... please help
+//func smallest(of:Double, and:Double) -> Double{
+//    if of < and {
+//    print(of)}
+//    else {
+//        print(and)}
+//}
+
 let testCasesTwo: [(Double, Double, Double)] = [
     (inputOne: 8.0, inputTwo: 3.0, expectedOutput: 3.0),
     (inputOne: 0, inputTwo: 0, expectedOutput: 0),
@@ -44,6 +56,15 @@ let testCasesTwo: [(Double, Double, Double)] = [
 // Write a function named smallestValue(in:) that takes in an array of Doubles and returns the smallest Double
 
 // Your function here
+    func smallestValue (x: [Double]) -> Double {
+        let value:Double = 0
+        for input in x {
+            if input <= value {
+                print(value)
+            }
+        }
+        return value
+}
 
 let testCasesThree: [([Double], Double)] = [
     (input: [1.0,2,3,4,5,5], expectedOutput: 1.0),
@@ -63,6 +84,13 @@ let testCasesThree: [([Double], Double)] = [
 // Write a function named occurrances(of:in:) that counts how many characters in a String match a specific character.
 
 // Your function here
+func Occurrance(of: Char, x: String) -> Int
+var emptyDict = [String.char]()
+for char in x {
+    of char == x {
+        emptyDict[Char] = count + 1
+    }
+}
 
 let testCasesFour: [(Character, String, Int)] = [
     (inputOne: "l", inputTwo: "hello", expectedOutput: 2),
@@ -82,6 +110,7 @@ let testCasesFour: [(Character, String, Int)] = [
 // Write a function called removeNils(from:) that takes an array of optional Ints and returns an array with them unwrapped with any nil values removed.
 
 // Your function here
+func removeNils
 
 let testCasesFive: [([Int?], [Int])] = [
     (input: [1, nil, 9, nil, 10, nil], expectedOutput: [1,9,10]),
