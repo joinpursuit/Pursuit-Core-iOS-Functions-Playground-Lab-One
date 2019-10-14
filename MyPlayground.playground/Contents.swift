@@ -84,7 +84,7 @@ let testCasesThree: [([Double], Double)] = [
 // Write a function named occurrances(of:in:) that counts how many characters in a String match a specific character.
 
 // Your function here
-
+//
 func occurrances(of letters: Character, in string: String) -> Int {
     var counter = 0
     for element in string {
@@ -113,8 +113,16 @@ let testCasesFour: [(Character, String, Int)] = [
 // Write a function called removeNils(from:) that takes an array of optional Ints and returns an array with them unwrapped with any nil values removed.
 
 // Your function here
-func removeNils
-
+func removeNils(from array: Array<Int?>) -> Array<Int> {
+    
+    var noNil: [Int] = []
+    for number in array {
+        if let literalNumber = number {
+            noNil.append(literalNumber)
+        }
+    }
+    return noNil
+}
 let testCasesFive: [([Int?], [Int])] = [
     (input: [1, nil, 9, nil, 10, nil], expectedOutput: [1,9,10]),
     (input: [1, 2, 3], expectedOutput: [1,2,3]),
