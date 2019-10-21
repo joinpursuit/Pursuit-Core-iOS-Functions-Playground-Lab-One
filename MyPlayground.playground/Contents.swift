@@ -92,10 +92,18 @@ for (input, expectedOutput) in testCasesThree {
 // Write a function named occurrances(of:in:) that counts how many characters in a String match a specific character.
 
 // Your function here
-func occurrances(of: Character?, in: String) {
-    var myChar = Character ?? "i"
-    occurrances(of: myChar, in: String)
+func occurrances(char: Character, str: String) -> Int {
+    //var myChar = Character()
+    var count = 0
+    for ch in str {
+        if ch == char {
+            count += 1
+        }
+    }
+    return count
 }
+let characterCount = occurrances(char: "E", str: "cApItAlS aRe DiFfErEnT")
+print(characterCount)
 
 let testCasesFour: [(Character, String, Int)] = [
     (inputOne: "l", inputTwo: "hello", expectedOutput: 2),
@@ -104,10 +112,10 @@ let testCasesFour: [(Character, String, Int)] = [
     (inputOne: "E", inputTwo: "cApItAlS aRe DiFfErEnT", expectedOutput: 2),
 ]
 
-//for (inputOne, inputTwo, expectedOutput) in testCasesFour {
-//    let output = occurrances(of: inputOne, in: inputTwo)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
-//}
+for (inputOne, inputTwo, expectedOutput) in testCasesFour {
+    let output = occurrances(char: inputOne, str: inputTwo)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
+}
 
 
 // Question Five
@@ -116,6 +124,21 @@ let testCasesFour: [(Character, String, Int)] = [
 
 // Your function here
 
+func removeNils(from: [Int?]) -> [Int] {
+    var noNilArray = [Int]()
+    for num in from {
+        let validNum = num ?? 0
+        if validNum != nil {
+            noNilArray.append(validNum)
+        
+        }
+    }
+    let noZerosArray = noNilArray.filter {$0 != 0 }
+    return noZerosArray
+}
+var myArray = removeNils(from: [nil])
+print(myArray)
+
 let testCasesFive: [([Int?], [Int])] = [
     (input: [1, nil, 9, nil, 10, nil], expectedOutput: [1,9,10]),
     (input: [1, 2, 3], expectedOutput: [1,2,3]),
@@ -123,8 +146,8 @@ let testCasesFive: [([Int?], [Int])] = [
     (input: [], expectedOutput: []),
 ]
 
-//for (input, expectedOutput) in testCasesFive {
-//    let output = removeNils(from: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesFive {
+    let output = removeNils(from: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
